@@ -3,6 +3,7 @@ const userClickedPattern = [];
 const computer_pattern = [];
 var level = 0;
 var index = 0;
+var started = 0;
 function animate_press(currentcolour)
 {
     
@@ -17,8 +18,11 @@ document.addEventListener("keypress",function()
 {
     if(event.key === 'a')
     {
-        
-        nextSequence(); 
+        if(started === 0)
+        {
+            started = 1;
+            nextSequence(); 
+        }
         
     }
    
@@ -105,6 +109,7 @@ function startover()
 {
     level = 0;
     index = 0;
+    started = 0;
     computer_pattern.splice(0,computer_pattern.length);
     userClickedPattern.splice(0,userClickedPattern.length);
 }
